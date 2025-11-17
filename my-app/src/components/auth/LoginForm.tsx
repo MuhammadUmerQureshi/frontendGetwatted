@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Loader2 } from "lucide-react"
@@ -10,6 +11,7 @@ interface LoginFormProps {
 }
 
 export function LoginForm({ onSuccess }: LoginFormProps) {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [rememberMe, setRememberMe] = useState(false)
@@ -28,7 +30,8 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
       if (response.status && response.res_data) {
         console.log("Login Successful:", response)
         onSuccess?.()
-        // Navigate to dashboard here
+        // Navigate to dashboard
+        navigate('/dashboard')
       } else {
         // Show "Invalid email or password" for failed login
         setErrorMessage("Invalid email or password")
