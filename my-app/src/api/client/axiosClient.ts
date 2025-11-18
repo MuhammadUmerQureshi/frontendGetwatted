@@ -20,8 +20,14 @@ axiosClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const token = localStorage.getItem('access_token');
 
+    console.log('🔍 API Request:', config.url);
+    console.log('🔑 Token from localStorage:', token ? `${token.substring(0, 20)}...` : 'NO TOKEN');
+
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
+      console.log('✅ Authorization header added');
+    } else {
+      console.log('❌ No Authorization header added');
     }
 
     return config;
