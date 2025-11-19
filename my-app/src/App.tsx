@@ -6,6 +6,10 @@ import { CompaniesPage } from '@/pages/companies/CompaniesPage'
 import { CompanyDetailsPage } from '@/pages/companies/CompanyDetailsPage'
 import { EditCompanyPage } from '@/pages/companies/EditCompanyPage'
 import { CreateCompanyPage } from '@/pages/companies/CreateCompanyPage'
+import { UsersPage } from '@/pages/users/UsersPage'
+import { CreateUserPage } from '@/pages/users/CreateUserPage'
+import { UserDetailsPage } from '@/pages/users/UserDetailsPage'
+import { EditUserPage } from '@/pages/users/EditUserPage'
 
 // Protected Route Component
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -40,6 +44,10 @@ function App() {
           <Route path="companies/new" element={<CreateCompanyPage />} />
           <Route path="companies/:companyId" element={<CompanyDetailsPage />} />
           <Route path="companies/:companyId/edit" element={<EditCompanyPage />} />
+          <Route path="users" element={<UsersPage />} />
+          <Route path="users/new" element={<CreateUserPage />} />
+          <Route path="users/:userId" element={<UserDetailsPage />} />
+          <Route path="users/:userId/edit" element={<EditUserPage />} />
         </Route>
 
         {/* Catch all - redirect to login */}
